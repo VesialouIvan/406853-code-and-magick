@@ -1,24 +1,20 @@
 'use strict';
 
-var CLOUD_WIDTH = 420; 
-var CLOUD_HEIGTH = 270; 
-var CLOUD_X = 100; 
-var CLOUD_Y = 10; 
-var GAP = 10; 
-var FONT_GAP = 15; 
-var TEXT_WIDTH = 50; 
-var BAR_HEIGTH = 20; 
+var CLOUD_WIDTH = 420;
+var CLOUD_HEIGTH = 270;
+var CLOUD_X = 100;
+var CLOUD_Y = 10;
+var GAP = 10;
 var barWidth = 40;
 
 
-
-var renderCloud = function(ctx, x, y, color) {
+var renderCloud = function (ctx, x, y, color) {
 	ctx.fillStyle = color; 
 	ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGTH);
 };
 
 
-var getMaxElement = function(arr) {
+var getMaxElement = function (arr) {
 	var maxElement = arr[0];
 
 	for (var i = 1; i < arr.length; i++) {
@@ -47,7 +43,6 @@ window.renderStatistics = function(ctx, players, times) {
 	var step = histogramHeigth / maxTime;
 	var textIndent = 20;
 
-	
 
 	for (var i = 0; i < players.length; i++) {
 		if (players[i] === 'Вы') {
