@@ -42,7 +42,6 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillStyle = '#000';
   var maxTime = getMaxElement(times);
   var step = histogramHeigth / maxTime;
-  
   for (var i = 0; i < players.length; i++) {
     ctx.fillStyle = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, ' + Math.random() + ')';
     ctx.fillRect(initialX + indent * i, initialY, barWidth, times[i] * step);
