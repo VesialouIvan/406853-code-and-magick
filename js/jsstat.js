@@ -6,6 +6,11 @@ var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 10;
 var barWidth = 40;
+var indent = 90;
+var initialX = 140;
+var initialY = 240;
+var histogramHeigth = -150;
+var textIndent = 20;
 
 
 var renderCloud = function (ctx, x, y, color) {
@@ -36,21 +41,10 @@ window.renderStatistics = function (ctx, players, times) {
 
   ctx.fillStyle = '#000';
   var maxTime = getMaxElement(times);
-  var indent = 90;
-  var initialX = 140;
-  var initialY = 240;
-  var histogramHeigth = -150;
   var step = histogramHeigth / maxTime;
-  var textIndent = 20;
-
-
+  
   for (var i = 0; i < players.length; i++) {
-    if (players[i] === 'Вы') {
-      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-    } else {
-      ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
-    }
-
+    ctx.fillStyle = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'rgba(0, 0, 255, ' + Math.random() + ')';
     ctx.fillRect(initialX + indent * i, initialY, barWidth, times[i] * step);
     ctx.fillStyle = 'black';
     ctx.fillText(players[i], initialX + indent * i, initialY + textIndent);
