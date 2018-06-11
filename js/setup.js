@@ -17,42 +17,42 @@ var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
 //получаем случайный элемент из каждого массива
 var getRandomElement = function(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)];
 };
 
 //мага получаем
 var createRandomWizard = function() {
-    return {
-        'name': getRandomElement(wizardNames) + ' ' + getRandomElement(wizardSurnames),
-        'coatColor': getRandomElement(coatColors),
-        'eyesColor': getRandomElement(eyesColors)
-    };
+  return {
+    'name': getRandomElement(wizardNames) + ' ' + getRandomElement(wizardSurnames),
+    'coatColor': getRandomElement(coatColors),
+    'eyesColor': getRandomElement(eyesColors)
+  };
 };
 
 //Получить случайных магов
 var getRandomWizards = function(num) {
-    var randomWizards = [];
-    for (i = 0; i < num; i++ ) {
-        randomWizards.push(createRandomWizard());
-    }   
-    return randomWizards;
+  var randomWizards = [];
+  for (i = 0; i < num; i++ ) {
+    randomWizards.push(createRandomWizard());
+  }
+  return randomWizards;
 };
 
 //Отрисовать одного мага
 var renderWizard = function(wizard) {
-    var wizardElement = similarWizardTemplate.cloneNode(true);
-    wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
-    wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
-    wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
-    return wizardElement;
+  var wizardElement = similarWizardTemplate.cloneNode(true);
+  wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
+  wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
+  return wizardElement;
 };
 
 // добавляем магов
 var addWizards = function(parent, fragment, wizards) {
-    for (i = 0; i < wizards.length; i++) {
-        fragment.appendChild(renderWizard(wizards[i]));
-    }
-    parent.appendChild(fragment);
+  for (i = 0; i < wizards.length; i++) {
+    fragment.appendChild(renderWizard(wizards[i]));
+  }
+  parent.appendChild(fragment);
 };
 
 var wizards = getRandomWizards(4);
