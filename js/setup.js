@@ -23,18 +23,19 @@ var getRandomElement = function(arr) {
 //мага получаем
 var createRandomWizard = function() {
     return {
-        'name': getRandomElement(wizardNames) +' ' getRandomElement(wizardSurnames);
+        'name': getRandomElement(wizardNames) + ' ' + getRandomElement(wizardSurnames);
         'coatColor': getRandomElement(coatColors);
         'eyesColor': getRandomElement(eyesColors);
     };
-}
+};
 
 //Получить случайных магов
 var getRandomWizards = function(num) {
     var randomWizards = [];
     for (i = 0; i < num; i++ ) {
         randomWizards.push(createRandomWizard());
-    }   return randomWizards;
+    }   
+    return randomWizards;
 };
 
 //Отрисовать одного мага
@@ -50,8 +51,8 @@ var renderWizard = function(wizard) {
 var addWizards = function(parent, fragment, wizards) {
     for (i = 0; i < wizards.length; i++) {
         fragment.appendChild(renderWizard(wizards[i]));
-        parent.appendChild(fragment);
     }
+    parent.appendChild(fragment);
 };
 
 var wizards = getRandomWizards(5);
